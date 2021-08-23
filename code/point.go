@@ -10,18 +10,4 @@ func main() {
 	fmt.Println(b)		//0xc00000e0a8
 	fmt.Println(&b)		//0xc000006028
 	fmt.Println(*b)		//10
-
-	c := &Animal{}
-
-	var d *Animal
-	fmt.Println(c)
-	fmt.Println(d)
 }
-
-
-
-type Animal struct {
-Hand    int
-Foot    int
-}
-
