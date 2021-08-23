@@ -45,6 +45,13 @@ fmt.Println(m[1])
 
 不要使用 `new`，永远用`make`来构造`map`,如果你错误的使用`new ()`分配了一个引用对象，你会获得一个空引用的指针，相当于声明了一个未初始化的变量并且取了它的地址
 
+map中的元素并不是一个变量，因此不能对map的元素进行取址操作：
+
+```go
+_ = &ages["bob"] // compile error: cannot take address of map element
+```
+
+
 ### map的实现
 
 hmap源码：
