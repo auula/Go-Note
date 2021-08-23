@@ -15,12 +15,12 @@ func Merge() string {
 }
 
 func MergeByFmt() string {
-	return fmt.Sprint("php","是","最好的语言","\n","php","是","最好的语言","\n","php","是","最好的语言","\n")
+	return fmt.Sprint("今晚","打","老虎","\n","今晚","打","老虎","\n","今晚","打","老虎","\n")
 
 }
 
 func MergeByJoin() string {
-	s:=[]string{"php","是","最好的语言","\n","php","是","最好的语言","\n","php","是","最好的语言","\n"}
+	s:=[]string{"今晚","打","老虎","\n","今晚","打","老虎","\n","今晚","打","老虎","\n"}
 	return strings.Join(s,"")
 }
 
