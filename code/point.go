@@ -10,4 +10,15 @@ func main() {
 	fmt.Println(b)		//0xc00000e0a8
 	fmt.Println(&b)		//0xc000006028
 	fmt.Println(*b)		//10
+
+	//
+	x, y := 1, 3
+	//fmt.Println(&x, &y)
+	swap(&x, &y)
+	fmt.Println(x, y)
+	//fmt.Println(&x, &y)
+}
+
+func swap(a, b *int) {
+	a, b = b, a
 }
