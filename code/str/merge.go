@@ -1,4 +1,4 @@
-package main
+package str
 
 import (
 	"bytes"
@@ -6,11 +6,13 @@ import (
 	"strings"
 )
 
+const S = "今晚打老虎"
+
 func Merge() string {
 	var s string
-	s+="php"+"是"+"最好的语言"+"\n"
-	s+="php"+"是"+"最好的语言"+"\n"
-	s+="php"+"是"+"最好的语言"+"\n"
+	s+="今晚"+"打"+"老虎"+"\n"
+	s+="今晚"+"打"+"老虎"+"\n"
+	s+="今晚"+"打"+"老虎"+"\n"
 	return s
 }
 
@@ -58,3 +60,32 @@ func MergeByBuilder() string {
 	s.WriteString("\n")
 	return s.String()
 }
+
+func initStrings(n int) []string {
+	s := make([]string, n)
+	for i := 0; i < n; i++ {
+		s[i] = S
+	}
+	return s
+}
+
+func MergeByBuilders(s []string) string {
+	var b strings.Builder
+	l := len(s)
+	for i := 0; i < l; i++ {
+		b.WriteString(s[i])
+	}
+	return b.String()
+}
+
+// StringBuilder 优化后的代码
+func StringBuilder(p []string,caps int) string {
+	var b strings.Builder
+	l:=len(p)
+	b.Grow(caps)
+	for i:=0;i<l;i++{
+		b.WriteString(p[i])
+	}
+	return b.String()
+}
+
