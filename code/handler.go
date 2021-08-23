@@ -8,11 +8,11 @@ import (
 )
 
 // Test 中间件demo实现
-type Test struct {
+type TestServer struct {
 
 }
 
-func (t *Test)ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (t *TestServer)ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("hello"))
 }
 
@@ -26,7 +26,7 @@ func timeMiddleware(next http.Handler) http.Handler {
 }
 
 func main() {
-	t := &Test{}
+	t := &TestServer{}
 	http.Handle("/", timeMiddleware(t))
 	log.Fatal(http.ListenAndServe(":8080",nil))
 }
