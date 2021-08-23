@@ -63,4 +63,3 @@ type bmap struct {
 	tophash [bucketCnt]uint8
 }
 ```
-`bmap`就是常说的 **桶**，桶里面最多装8对key-value，
