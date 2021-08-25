@@ -28,35 +28,34 @@ func sum (x, y int, fns ...fn) {
 type Job func()
 
 
+func main() {
+	ch := make(chan Job,3)
+	defer close(ch)
+	go func() {
+		for {
+			fn, ok := <- ch
+			if !ok {
+				return
+			}
+			fn()
+		}
+	}()
 
-//func main() {
-//	ch := make(chan job,3)
-//	defer close(ch)
-//	go func() {
-//		for {
-//			fn, ok := <- ch
-//			if !ok {
-//				return
-//			}
-//			fn()
-//		}
-//	}()
-//
-//	var job1 = func() {
-//		fmt.Println(1)
-//	}
-//	var job2 = func() {
-//		fmt.Println(2)
-//	}
-//	var job3 = func() {
-//		fmt.Println(3)
-//	}
-//	var job4 = func() {
-//		fmt.Println(4)
-//	}
-//	ch<- job1
-//	ch<- job2
-//	ch<- job3
-//	ch<- job4
-//	fmt.Println("success")
-//}
+	var job1 = func() {
+		fmt.Println(1)
+	}
+	var job2 = func() {
+		fmt.Println(2)
+	}
+	var job3 = func() {
+		fmt.Println(3)
+	}
+	var job4 = func() {
+		fmt.Println(4)
+	}
+	ch<- job1
+	ch<- job2
+	ch<- job3
+	ch<- job4
+	fmt.Println("success")
+}
