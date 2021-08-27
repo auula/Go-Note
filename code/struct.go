@@ -60,29 +60,24 @@ func (c *Cat) Call() {
 
 type empty struct{}
 
-func (e empty) Say() {
-	fmt.Println("empty")
-}
-//var a struct{}
-//var b empty
-//var c *empty
 
-//func main() {
-//	fmt.Println(unsafe.Sizeof(a))
-//
-//	s := &empty{}
-//	s.Say()
-//	fmt.Println(unsafe.Sizeof(s))
-//
-//	b = empty{}
-//	b.Say()
-//	fmt.Println(unsafe.Sizeof(b))
-//
-//	c = &empty{}
-//	b.Say()
-//	fmt.Println(unsafe.Sizeof(c))
-//
-//}
+var a struct{}
+var b empty
+var c *empty
+
+func main() {
+	fmt.Println(unsafe.Sizeof(a))
+
+	s := &empty{}
+	fmt.Println(unsafe.Sizeof(s))
+
+	b = empty{}
+	fmt.Println(unsafe.Sizeof(b))
+
+	c = &empty{}
+	fmt.Println(unsafe.Sizeof(c))
+
+}
 
 
 type T struct {
@@ -93,11 +88,11 @@ type T struct {
 
 }
 
-func main() {
-	t := T{}
-	fmt.Printf("part1 size: %d, align: %d\n", unsafe.Sizeof(t), unsafe.Alignof(t))
-
-}
+//func main() {
+//	t := T{}
+//	fmt.Printf("part1 size: %d, align: %d\n", unsafe.Sizeof(t), unsafe.Alignof(t))
+//
+//}
 /**a 是占用1字节，b占用4字节，c占用2字节，这个结构体里，最大的是4字节，以最大字节作为读取边界，所以每次是读4字节，a占用1字节，b占用4字节，无法一次读取，所以就是|axxx|bbbb}
 c占2字节 所以当前内存是：|axxx|bbbb|ccxx| 12%4 = 0，所以这个t占用12字节
 **/
