@@ -2,9 +2,6 @@ package main
 
 import "fmt"
 
-
-//断言
-
 type Animals interface {
 	Run() string
 	Call() string
